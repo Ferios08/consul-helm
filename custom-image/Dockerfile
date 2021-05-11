@@ -57,5 +57,5 @@ Host *\n\
 
 WORKDIR /ansible
 COPY entrypoint entrypoint 
-RUN chmod +x entrypoint && ./entrypoint && rm entrypoint && chown consul:consul /ansible
+RUN chmod +x entrypoint && ./entrypoint && rm entrypoint && chown -R consul:consul /ansible
 
