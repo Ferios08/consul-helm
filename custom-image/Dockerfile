@@ -1,4 +1,4 @@
-FROM alpine:3.12
+FROM hashicorp/consul:1.9.4
 
 # Metadata params
 ARG BUILD_DATE
