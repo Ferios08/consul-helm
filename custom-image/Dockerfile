@@ -1,4 +1,4 @@
-FROM hashicorp/consul:1.9.4
+FROM hashicorp/consul:1.10.0-beta2
 
 # Metadata params
 ARG BUILD_DATE
