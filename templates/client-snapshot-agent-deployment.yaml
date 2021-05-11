@@ -74,6 +74,7 @@ spec:
       containers:
         - name: consul-snapshot-agent
           image: "{{ default .Values.global.image .Values.client.image }}"
+          imagePullPolicy: "{{ default .Values.global.pullpolicy .Values.client.pullpolicy }}"
           env:
             - name: HOST_IP
               valueFrom:
