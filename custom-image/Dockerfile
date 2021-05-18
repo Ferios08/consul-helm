@@ -56,7 +56,7 @@ Host *\n\
 """ >> /etc/ssh/ssh_config  \
 && echo root:rootpass | chpasswd && echo consul:consulpass | chpasswd
 
-COPY ansible.cfg /etc/ansible/ansible.cfg
+COPY ansible.cfg /etc/ansible/
 
 
 WORKDIR /ansible
