@@ -16,7 +16,7 @@ LABEL maintainer="Firas Chbiki <chb.firas@gmail.com>" \
       org.label-schema.schema-version="1.0"
 
 RUN set -ex && apk --update --no-cache add \
-        add sudo \
+        sudo \
         ca-certificates \
         git nano \
         openssh-client \
