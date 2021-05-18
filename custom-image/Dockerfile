@@ -15,9 +15,10 @@ LABEL maintainer="Firas Chbiki <chb.firas@gmail.com>" \
       org.label-schema.description="Ansible on alpine docker image" \
       org.label-schema.schema-version="1.0"
 
-RUN apk --update --no-cache add \
+RUN set -ex && apk --update --no-cache add \
+        add sudo \
         ca-certificates \
-        git \
+        git nano \
         openssh-client \
         openssl \
         python3\
@@ -52,10 +53,16 @@ RUN mkdir -p /etc/ansible \
 Host *\n\
     StrictHostKeyChecking no\n\
     UserKnownHostsFile=/dev/null\n\
-""" >> /etc/ssh/ssh_config
+""" >> /etc/ssh/ssh_config  \
+&& echo root:rootpass | chpasswd && echo consul:consulpass | chpasswd
+
+COPY ansible.cfg /etc/ansible/ansible.cfg
 
 
 WORKDIR /ansible
 COPY entrypoint entrypoint 
 RUN chmod +x entrypoint && ./entrypoint && rm entrypoint && chown -R consul:consul /ansible
+
+RUN git
+USER root
 

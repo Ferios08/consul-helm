@@ -10,4 +10,13 @@ docker push firasdotcom/consul:ansible
 
 cd ../ && helm upgrade --install consul ./  -f values.yaml  --set global.name=consul
 
+helm install -f config.yaml consul hashicorp/consul --set global.name=consul
+
 helm uninstall consul
+
+
+
+## Resources:
+https://www.consul.io/docs/k8s/installation/install
+https://learn.hashicorp.com/tutorials/consul/kubernetes-deployment-guide
+https://learn.hashicorp.com/tutorials/consul/service-mesh-deploy?in=consul/gs-consul-service-mesh
