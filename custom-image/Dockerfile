@@ -63,6 +63,6 @@ WORKDIR /ansible
 COPY entrypoint entrypoint 
 RUN chmod +x entrypoint && ./entrypoint && rm entrypoint && chown -R consul:consul /ansible
 
-RUN git
+RUN git https://github.com/Ferios08/Ansible-Demo.git
 USER root
 
