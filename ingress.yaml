@@ -15,10 +15,10 @@ metadata:
 spec:
   tls:
     - hosts:
-        - consul.40.89.137.8.nip.io
+        - consul.canbe.fun
       secretName: consul-tls
   rules:
-    - host: consul.40.89.137.8.nip.io
+    - host: consul.canbe.fun
       http:
         paths:
           - pathType: Prefix

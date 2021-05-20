@@ -12,6 +12,11 @@ cd ../ && helm upgrade --install consul ./  -f values.yaml  --set global.name=co
 
 helm install -f config.yaml consul hashicorp/consul --set global.name=consul
 
+# secret for ingress
+sudo apt install apache2-utils
+htpasswd -c auth admin
+kubectl create secret generic basic-auth --from-file=auth
+
 helm uninstall consul
 
 
